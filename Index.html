@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envío de Correos y Paquetes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="hidden">
+    <div class="center" id="onload">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>  
+    </div>
+        <header>
+            <h1>Envío de Correos y Paquetes</h1>
+        </header>
+     
+        <section>
+            <form action="#" method="post" onsubmit="calcularPrecio(event)">
+                <label for="destinatario">Destinatario:</label>
+                <input type="text" id="destinatario" name="destinatario" required>
+    
+                <label for="direccion">Dirección de Envío:</label>
+                <input type="text" id="direccion" name="direccion" required>
+    
+                <label for="codigo_postal">Código Postal:</label>
+                <input type="text" id="codigo_postal" name="codigo_postal" required>
+    
+                <label for="tipo_paquete">Tipo de Paquete:</label>
+                <select id="tipo_paquete" name="tipo_paquete" onchange="mostrarMedidas()">
+                    <option value="carta">Carta</option>
+                    <option value="paquete_pequeño">Paquete Pequeño</option>
+                    <option value="paquete_grande">Paquete Grande</option>
+                </select>
+    
+                <div id="medidas" style="display: none;">
+                    <label for="largo">Largo (cm):</label>
+                    <input type="number" id="largo" name="largo">
+    
+                    <label for="ancho">Ancho (cm):</label>
+                    <input type="number" id="ancho" name="ancho">
+    
+                    <label for="alto">Alto (cm):</label>
+                    <input type="number" id="alto" name="alto">
+                </div>
+    
+                <label for="peso">Peso (Kg):</label>
+                <input type="number" id="peso" name="peso" required>
+    
+                <label for="distancia">Distancia (Km):</label>
+                <input type="number" id="distancia" name="distancia" required>
+    
+                <div id="envioLocal" style="display: none;">
+                    <label for="local">¿Mismo ciudad?</label>
+                    <input type="checkbox" id="local" name="local" onchange="mostrarPrecioLocal()">
+                </div>
+     
+                <p id="precioFinal">Precio del envío: €0</p>
+    
+                <button type="submit">Calcular Precio</button>
+            </form>
+        </section>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="Script.js"></script>
+
+</body>
+</html>
